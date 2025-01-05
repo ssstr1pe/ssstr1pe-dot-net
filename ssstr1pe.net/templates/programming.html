@@ -1,0 +1,41 @@
+{% extends "navbar.html" %}
+{% block content %}
+<div>
+    <p>Waddup!</p>
+</div>
+
+<div>
+    <div>
+        <p>You can find my personal github at the link below:</p>
+    </div>
+</div>
+
+<div>
+    <div class="outer">
+        <a class="inner" href="https://github.com/ssstr1pe">
+            <img src="{{url_for('static', filename='github.png')}}" style="max-height: 100px; max-width: 100px;" />
+        </a>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div>
+    <p>You can find my work github here:</p>
+</div>
+
+<div>
+    <div class="outer">
+        <a class="inner" href="https://github.com/andersson1234">
+            <img src="{{url_for('static', filename='github.png')}}" style="max-height: 100px; max-width: 100px;" />
+        </a>
+    </div>
+</div>
+{% endblock %}

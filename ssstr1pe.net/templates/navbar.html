@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+
+{% block style %}
+<style>
+    body {
+        font-family: monospace;
+        background-color: #000000;
+        margin: 0;
+        padding: 0;
+    }
+
+    span{
+        color: #2bac1f;
+        width: 400px;
+        height: 50px;
+        line-height: 50px;
+        text-align:left;
+    }
+
+    div{
+        background-color: #000000;
+        color: #2bac1f;
+        justify-content: center;
+        display: flex;
+    }
+
+    a:link {
+        color: #2bac1f;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: #2bac1f;
+        text-decoration: none;
+    }
+
+    p.double {
+        border-style: double;
+    }
+
+    .outer {
+        position: relative;
+    }
+    
+    .inner {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Title {
+        font-size: xx-large;
+        background-image: url('../static/stars.png');
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    .Row {
+        display: table;
+        background-color: #525252;
+        width: 100%; /*Optional*/
+        table-layout: fixed; /*Optional*/
+        border-spacing: 10px; /*Optional*/
+    }
+
+    .Column {
+        display: table-cell;
+        /* background-color: #000000; */
+        table-layout: auto;
+        background-image: url('../static/stars.png');
+        color: #2bac1f;
+        font-size: large;
+        text-align: center;
+    }
+
+    .BottomDiv {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        justify-content: left;
+        background-color: #000000;
+    }
+
+    .BottomImg {
+        position: relative;
+        display: block;
+        float: left;
+    }
+    
+</style>
+{% endblock %}
+
+<body>
+
+{% block title %}
+<div class="Title">ssstr1pe.net</div>
+{% endblock %}
+
+{% block nav %}
+<div class="Row">
+    <div class="Column">
+        <a href="{{ url_for('home') }}">home</a>
+    </div>
+    <div class="Column">
+        <a href="{{ url_for('music') }}">music</a>
+    </div>
+    <div class="Column">
+        <a href="{{ url_for('programming') }}">programming</a>
+    </div>
+    <div class="Column">
+        <a href="{{ url_for('socials') }}">socials</a>
+    </div>
+    <div class="Column">
+        <a href="{{ url_for('blog') }}">blog</a>
+    </div>
+    <div class="Column">
+        <a href="{{ url_for('contact') }}">contact</a>
+    </div>
+    <div class="Column">
+        <a href="{{ url_for('ssstr1peOS') }}">ssstr1peOS</a>
+    </div>
+    <div class="Column">
+        <a href="{{ url_for('mailing_list') }}">mailing list</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+<div id="footer" class="BottomDiv">
+    {% block footer %}
+    <img  class="BottomImg" src="{{url_for('static', filename='ssstr1pe-spin.gif')}}" style="max-height: 100px; max-width: 100px;" />
+    {% endblock %}
+</div>
+
+</body>
