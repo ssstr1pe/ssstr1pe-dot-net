@@ -47,20 +47,20 @@ def programming():
 
 @app.route('/socials')
 def socials():
-    return render("home.html", 200)
+    return render("socials.html", 200)
 
-@app.route('/blog')
-def blog():
-    return render("home.html", 200)
+# @app.route('/blog')
+# def blog():
+#     return render("home.html", 200)
 
 @app.route('/contact')
 def contact():
-    return render("home.html", 200)
+    return render("contact.html", 200)
 
-@app.route('/ssstr1peOS')
-def ssstr1peOS():
-    return render("home.html", 200)
-
-@app.route('/mailing_list')
-def mailing_list():
-    return render("home.html", 200)
+# @app.route('/ssstr1peOS')
+# def ssstr1peOS():
+#     return render("home.html", 200)
+# 
+# @app.route('/mailing_list')
+# def mailing_list():
+#     return render("home.html", 200)
