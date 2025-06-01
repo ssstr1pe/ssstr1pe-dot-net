@@ -1,29 +1,20 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, send_file
+import os
 
 app = Flask(__name__)
 
-# what endpoints?
-# Music
-# Programming
-# Projects
-# Blog
-# Contact / socials
+
+APP_PATH = os.path.dirname(os.path.realpath(__file__))
+
+# future endpoints?
 # ssstr1peOS
 # Mailing list
-# Sampling moodboard / easter egg hunt thing
-
-# do like an enter page with the str1pe face and just an enter button
-# maybe str1pe face rotating that'd be cool
-# enter takes you to /home/
-
-# Start with home page design
 
 def render(template, code, **kwargs):
     return (
         render_template(
             template,
             base_url=url_for("route"),
-            # static_url=url_for("static", filename=""),
             **kwargs,
         ),
         code,
@@ -49,18 +40,50 @@ def programming():
 def socials():
     return render("socials.html", 200)
 
-# @app.route('/blog')
-# def blog():
-#     return render("home.html", 200)
+@app.route('/blog')
+def blog():
+    posts = os.listdir(f"{APP_PATH}/templates/blog_posts")
+    posts = [post.replace(".html", "") for post in posts]
+    return render("blog.html", 200, posts=posts)
+
+@app.route('/blog_posts/<post>/')
+def blog_posts(post):
+    return render(f"blog_posts/{post}.html", 200)
 
 @app.route('/contact')
 def contact():
     return render("contact.html", 200)
 
-# @app.route('/ssstr1peOS')
-# def ssstr1peOS():
-#     return render("home.html", 200)
-# 
-# @app.route('/mailing_list')
-# def mailing_list():
-#     return render("home.html", 200)
+@app.route('/downloads')
+def downloads():
+    return render("downloads.html", 200)
+
+@app.route('/breakbeats')
+def breakbeats():
+    breakbeats = os.listdir(f"{APP_PATH}/static/breakbeats/wav/")
+    breakbeats = [breakbeat.replace(".wav", "") for breakbeat in breakbeats]
+    return render("breakbeats.html", 200, breakbeats=breakbeats)
+
+@app.route('/breakbeat/<breakbeat>/')
+def breakbeat(breakbeat):
+    try:
+        if breakbeat == "all":
+            return send_file(f"{APP_PATH}/static/breakbeats/all-breakbeats.zip")
+        else:
+            return send_file(f"{APP_PATH}/static/breakbeats/wav/{breakbeat}.wav")
+    except Exception as e:
+        return str(e)
+
+@app.route('/downloads/my_music/')
+def my_music():
+    music_path = f"{APP_PATH}/static/my_music/"
+    releases = os.listdir(music_path)
+    music={}
+    for release in releases:
+        if ".zip" in release:
+            continue
+        else:
+            music[release] = {}
+            music[release]["tracks"] = [os.path.relpath(track, start=APP_PATH) for track in os.listdir(f"{music_path}{release}/") if track.endswith(".wav")]
+    return render("my_music.html", 200, music=music)
+

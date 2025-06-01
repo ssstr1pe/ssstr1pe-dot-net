@@ -1,0 +1,34 @@
+{% extends "navbar.html" %}
+{% block content %}
+
+<div>
+    <div>
+        <p class="PageTitle">Downloads!</p>
+    </div>
+</div>
+
+<div>
+    <div class="BlogLink">
+        <p class="BlogLink"><a class="BlogLink" href="{{ url_for('breakbeats') }}">Breakbeats</a></p>
+    </div>
+</div>
+
+<div>
+    <div>
+        <p>The above is a link to a library of 800 odd breakbeats, all listed on one page. You can download breakbeats individually, or download all of them zipped up together. I use this library whenever I make a track - though admittedly I use the amen break more than I should...</p>
+    </div>
+</div>
+
+<div>
+    <div class="BlogLink">
+        <p class="BlogLink"><a class="BlogLink" href="{{ url_for('my_music') }}">My Music</a></p>
+    </div>
+</div>
+
+<div>
+    <div>
+        <p>At the above, you can download all of my music in wav format.</p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "navbar.html" %}
+{% block content %}
+<div>
+    <div>
+        <p class="PageTitle">Here's a list of all of my music. To download the whole release, click the release name. You can download individual tracks by clicking on them.</p>
+    </div>
+</div>
+
+{% for release, data in music.items() %}
+    <div class="outer">
+        <a>
+            <img src="/static/my_music/{{ release }}/art.jpg" style="max-height: 400px; max-width: 400px;" />
+        </a>
+    </div>
+    <div>
+        <div>
+            <p><a href="/static/my_music/{{ release }}.zip" class="BlogLink">{{ release }}</a></p>
+        </div>
+    </div>
+    {% for track in data['tracks'] %}
+        <div>
+            <div>
+                <i><a href="/static/my_music/{{ release }}/{{ track }}" class="TextLink">{{ track }}</a></i>
+            </div>
+        </div>
+        <div style="height:20px; width:100%; clear:both;"></div>
+    {% endfor %}
+    <div style="height:40px; width:100%; clear:both;"></div>
+{% endfor %}
+
+<div style="height:100px; width:100%; clear:both;"></div>
+
+{% endblock %}

@@ -17,12 +17,58 @@
         line-height: 50px;
         text-align:left;
     }
+    
+    p{
+        font-size: x-large;
+        text-align: left;
+        width: 50%;
+    }
+
+    em{
+        font-size: x-large;
+    }
 
     div{
         background-color: #000000;
         color: #2bac1f;
         justify-content: center;
         display: flex;
+    }
+
+    .BlogLink{
+        color: #35d426;
+        text-decoration: none;
+        font-size: xx-large;
+    }
+
+    .BlogLink:link{
+        color: #35d426;
+        text-decoration: none;
+    }
+
+    .BlogLink:visited{
+        color: #3ef22d;
+        text-decoration: none;
+    }
+
+    .PageTitle{
+        font-size: xx-large;
+    }
+
+    .TextLink{
+        color: #35d426;
+        text-decoration: none;
+        font-size: x-large;
+    }
+
+    .TextLink:link{
+        color: #35d426;
+        text-decoration: none;
+    }
+
+    .TextLink:visited{
+        color: #3ef22d;
+        text-decoration: none;
     }
 
     a:link {
@@ -51,7 +97,7 @@
 
     .Title {
         font-size: xx-large;
-        background-image: url('../static/stars.png');
+        background-image: url('/static/stars.png');
         height: 60px;
         display: flex;
         align-items: center;
@@ -67,17 +113,17 @@
 
     .Column {
         display: table-cell;
-        /* background-color: #000000; */
         table-layout: auto;
-        background-image: url('../static/stars.png');
+        background-image: url('/static/stars.png');
         color: #2bac1f;
-        font-size: large;
+        font-size: x-large;
         text-align: center;
     }
 
     .BottomDiv {
         width: 100%;
-        position: absolute;
+        /* position: relative; */
+        position: fixed;
         bottom: 0;
         justify-content: left;
         background-color: #000000;
@@ -110,10 +156,16 @@
         <a href="{{ url_for('programming') }}">programming</a>
     </div>
     <div class="Column">
+        <a href="{{ url_for('blog') }}">blog</a>
+    </div>
+    <div class="Column">
         <a href="{{ url_for('socials') }}">socials</a>
     </div>
     <div class="Column">
         <a href="{{ url_for('contact') }}">contact</a>
+    </div>
+    <div class="Column">
+        <a href="{{ url_for('downloads') }}">downloads</a>
     </div>
 </div>
 {% endblock %}

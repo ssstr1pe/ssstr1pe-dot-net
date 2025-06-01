@@ -1,0 +1,38 @@
+{% extends "navbar.html" %}
+{% block content %}
+<div>
+    <div>
+        <p class="PageTitle">Here's a list of a tonne of breakbeats...</p>
+    </div>
+</div>
+
+<div>
+    <div>
+        <p>Below is a list of {{ breakbeats|length }} breakbeats... If you click on any of them, you'll download the corresponding .wav file. If you just want to download all of them, click the button below:</p>
+    </div>
+</div>
+
+<div class="BlogLink">
+    <p class="BlogLink"><a class="BlogLink" href="{{ url_for('breakbeat', breakbeat='all') }}">DOWNLOAD ALL</a></p>
+</div>
+
+<div>
+    <div>
+        <p>If you have a breakbeat you use regularly, and it's not on this list, please <a class="BlogLink" href="mailto:str1pe.c0re.1@gmail.com">send it to me via email</a>!</p>
+    </div>
+</div>
+
+{% for break in breakbeats %}
+    <div>
+        <div class="TextLink">
+            <p class="TextLink"><a class="TextLink" href="{{ url_for('breakbeat', breakbeat=break) }}">{{ break }}</a></p>
+            <audio controls>
+                <source src="static/breakbeats/mp3/{{ break + '.mp3' }}" type="audio/mp3">
+            </audio> 
+        </div>
+    </div>
+{% endfor %}
+
+<div style="height:200px; width:100%; clear:both;"></div>
+
+{% endblock %}
