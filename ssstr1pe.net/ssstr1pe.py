@@ -84,6 +84,6 @@ def my_music():
             continue
         else:
             music[release] = {}
-            music[release]["tracks"] = [os.path.relpath(track, start=APP_PATH) for track in os.listdir(f"{music_path}{release}/") if track.endswith(".wav")]
+            music[release]["tracks"] = [track for track in os.listdir(f"{music_path}{release}/") if track.endswith(".wav")]
     return render("my_music.html", 200, music=music)
 
