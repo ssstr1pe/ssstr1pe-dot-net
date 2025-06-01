@@ -2,14 +2,14 @@
 {% block content %}
 <div>
     <div>
-        <p>Welcome! This is my blog posts page. Here you will find both the coherent, and the totally incoherent...</p>
+        <p>Blog posts!</p>
     </div>
 </div>
 
 {% for post in posts %}
     <div>
         <div class="BlogLink">
-            <p class="BlogLink"><a class="BlogLink" href="{{ url_for('blog_posts', post=post) }}">{{ post.replace("_", " ").replace(".html", "") }}</a>!</p>
+            <p class="BlogLink"><a class="BlogLink" href="{{ url_for('blog_posts', post=post) }}">{{ post.replace("_", " ").replace(".html", "") }}</a></p>
         </div>
     </div>
 {% endfor %}
