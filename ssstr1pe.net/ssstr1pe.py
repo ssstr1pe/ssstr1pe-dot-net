@@ -44,6 +44,7 @@ def socials():
 def blog():
     posts = os.listdir(f"{APP_PATH}/templates/blog_posts")
     posts = [post.replace(".html", "") for post in posts]
+    posts.reverse()
     return render("blog.html", 200, posts=posts)
 
 @app.route('/blog_posts/<post>/')
