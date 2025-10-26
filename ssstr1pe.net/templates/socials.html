@@ -1,18 +1,12 @@
 {% extends "navbar.html" %}
 {% block content %}
+
 <div>
-    <div>
-        <p>You can find me here:</p>
+    <div class="outer">
+        <a class="inner" href="https://instagram.com/ssstr1pe">
+            <img src="{{url_for('static', filename='instagram.jpg')}}" style="max-height: 300px; max-width: 300px;" />
+        </a>
     </div>
 </div>
-<div>
-    <div>
-        <p><a class="BlogLink" href="https://instagram.com/ssstr1pe">instagram.com/ssstr1pe</a></p>
-    </div>
-</div>
-<div>
-    <div>
-        <p>That's it!</p>
-    </div>
-</div>
+
 {% endblock %}
