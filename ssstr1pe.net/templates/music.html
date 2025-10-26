@@ -4,34 +4,24 @@
 
 <div>
     <div>
-        <p>You can find me on Soundcloud:</p>
+        <p>You can find me on:</p>
     </div>
 </div>
 
-
 <div class="outer">
-    <a class="inner" href="https://soundcloud.com/ssstr1pe">
-        <img src="{{url_for('static', filename='soundcloud.jpg')}}" style="max-height: 100px; max-width: 100px;" />
+
+    <a class="logo" href="https://soundcloud.com/ssstr1pe">
+        <img src="{{url_for('static', filename='soundcloud.jpg')}}" style="max-height: 200px; max-width: 200px;" />
     </a>
+
+    <a class="logo" href="https://str1pe.bandcamp.com/">
+        <img src="{{url_for('static', filename='bandcamp.png')}}" style="max-height: 200px; max-width: 200px;" />
+    </a>
+
+    <a class="logo" href="https://open.spotify.com/artist/0Foe2BAYwLMAzrAHhcalxb?si=dT1PJaYwSuWPkpXS_6fOLg">
+        <img src="{{url_for('static', filename='spotify.jpeg')}}" style="max-height: 200px; max-width: 200px;" />
+    </a>
+
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<div>
-    <div>
-        <p>And on Spotify:</p>
-    </div>
-</div>
-
-<div class="outer">
-    <a class="inner" href="https://open.spotify.com/artist/0Foe2BAYwLMAzrAHhcalxb?si=dT1PJaYwSuWPkpXS_6fOLg">
-        <img src="{{url_for('static', filename='spotify.jpeg')}}" style="max-height: 100px; max-width: 100px;" />
-    </a >
-</div>
 {% endblock %}
