@@ -88,3 +88,6 @@ def my_music():
             music[release]["tracks"] = [track for track in os.listdir(f"{music_path}{release}/") if track.endswith(".wav")]
     return render("my_music.html", 200, music=music)
 
+@app.route('/bugle')
+def bugle():
+    return render("bugle.html", 200)

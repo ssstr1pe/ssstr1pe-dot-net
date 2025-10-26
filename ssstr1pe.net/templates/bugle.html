@@ -1,0 +1,18 @@
+{% extends "navbar.html" %}
+{% block content %}
+
+<div>
+    <div>
+        <p>I run The Breakcore Bugle, a news site for breakcore. You can find it at the link below:</p>
+    </div>
+</div>
+
+<div>
+    <div class="outer">
+        <a class="inner" href="https://thebreakcorebugle.com">
+            <img src="{{url_for('static', filename='bugle.jpg')}}" style="max-height: 300px; max-width: 300px;" />
+        </a>
+    </div>
+</div>
+
+{% endblock %}
