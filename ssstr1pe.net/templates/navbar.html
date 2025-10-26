@@ -96,6 +96,11 @@
         transform: translateX(-50%);
     }
 
+    .logo {
+        max-height: 400px;
+        max-width: 400px;
+    }
+
     .Title {
         font-size: xx-large;
         background-image: url('/static/stars.png');
@@ -167,6 +172,9 @@
     </div>
     <div class="Column">
         <a href="{{ url_for('downloads') }}">downloads</a>
+    </div>
+    <div class="Column">
+        <a href="{{ url_for('bugle') }}">bugle</a>
     </div>
 </div>
 {% endblock %}
