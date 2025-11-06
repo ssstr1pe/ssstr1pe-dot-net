@@ -32,9 +32,9 @@ def home():
 def music():
     return render("music.html", 200)
 
-@app.route('/programming')
-def programming():
-    return render("programming.html", 200)
+@app.route('/code')
+def code():
+    return render("code.html", 200)
 
 @app.route('/socials')
 def socials():
