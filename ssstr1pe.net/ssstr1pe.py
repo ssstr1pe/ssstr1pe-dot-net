@@ -1,4 +1,8 @@
-from flask import Flask, render_template, url_for, send_file
+from flask import Flask, render_template, url_for, send_file, request
+
+from pathlib import Path
+
+import hashlib
 import os
 
 app = Flask(__name__)
@@ -91,3 +95,17 @@ def my_music():
 @app.route('/bugle')
 def bugle():
     return render("bugle.html", 200)
+
+@app.route("/library")
+def library():
+    return render("library.html", 200)
+
+@app.route("/library_dl")
+def library_dl():
+    password = request.args.get('password')
+    m = hashlib.sha256()
+    m.update(password.encode("utf-8"))
+    accepted_pw = Path(f"{APP_PATH}/static/library-pwd").read_text().rstrip()
+    if m.hexdigest() == accepted_pw:
+        return send_file(f"{APP_PATH}/static/library.tar.gz")
+    return render("wrong_password.html", 200)
