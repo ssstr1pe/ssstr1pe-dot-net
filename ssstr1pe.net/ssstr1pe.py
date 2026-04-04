@@ -96,16 +96,16 @@ def my_music():
 def bugle():
     return render("bugle.html", 200)
 
-@app.route("/library")
-def library():
-    return render("library.html", 200)
-
-@app.route("/library_dl")
-def library_dl():
-    password = request.args.get('password')
-    m = hashlib.sha256()
-    m.update(password.encode("utf-8"))
-    accepted_pw = Path(f"{APP_PATH}/static/library-pwd").read_text().rstrip()
-    if m.hexdigest() == accepted_pw:
-        return send_file(f"{APP_PATH}/static/library.tar.gz")
-    return render("wrong_password.html", 200)
+# @app.route("/library")
+# def library():
+#     return render("library.html", 200)
+# 
+# @app.route("/library_dl")
+# def library_dl():
+#     password = request.args.get('password')
+#     m = hashlib.sha256()
+#     m.update(password.encode("utf-8"))
+#     accepted_pw = Path(f"{APP_PATH}/static/library-pwd").read_text().rstrip()
+#     if m.hexdigest() == accepted_pw:
+#         return send_file(f"{APP_PATH}/static/library.tar.gz")
+#     return render("wrong_password.html", 200)
